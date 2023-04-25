@@ -1,5 +1,6 @@
 from django.contrib import admin
-'''from .models import addInfo
+from .models import PatientDetails,Booking
 
-admin.site.register(addInfo)'''
+admin.site.register(PatientDetails)
+admin.site.register(Booking)
 

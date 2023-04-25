@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import PatientDetails,Booking
+from doctor.models import Doctor
+import random
 '''from django.contrib.auth.models import User
 from .models import addInfo
 from django.contrib.auth import authenticate,login
@@ -10,6 +13,24 @@ def home(request):
     return render(request,'index.html')
 
 def newpatient(request):
+    if request.method == "POST":
+        firstname = request.POST.get('firstName')
+        lastname = request.POST.get('lastName')
+        email = request.POST.get('email')
+        address = request.POST.get('address')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+        contactnumber = request.POST.get('contactNumber')
+        emernumber = request.POST.get('contactNumber1')
+        department = request.POST.get('department')
+        doctor = request.POST.get('doctor')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        idz = "#OR"+str(random.randint(10000,100000))
+        patient = PatientDetails(patientid = idz,firstname = firstname,lastname=lastname,email=email,address=address,age=age,gender=gender,contact1=contactnumber,emgnumber=emernumber)
+        patient.save()
+        doc = Doctor.objects.filter(department=department,doctorname=doctor).values()
     return render(request,'newpatient.html')
 
 def extpatient(request):

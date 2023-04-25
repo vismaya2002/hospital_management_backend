@@ -3,7 +3,7 @@ from django.db import models
 
 
 class PatientDetails(models.Model):
-    patientid = models.CharField(max_length=20)
+    patientid = models.CharField(max_length=20,primary_key=True)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
     email = models.EmailField()
@@ -16,4 +16,9 @@ class PatientDetails(models.Model):
 
 
 
-
+class Booking(models.Model):
+    patientid = models.CharField(max_length=20)
+    doctorid = models.CharField(max_length=20)
+    date = models.DateField()
+    time = models.TimeField()
+    token = models.IntegerField()
