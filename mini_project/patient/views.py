@@ -31,10 +31,22 @@ def newpatient(request):
         patient = PatientDetails(patientid = idz,firstname = firstname,lastname=lastname,email=email,address=address,age=age,gender=gender,contact1=contactnumber,emgnumber=emernumber)
         patient.save()
         doc = Doctor.objects.filter(department=department,doctorname=doctor).values()
+        doc_id = doc[0]['doctorid']
+        print(doc_id)
+        length = 0
+        try:
+            length = len(Booking.objects.filter(doctorid=doc_id).values())
+        except:
+            pass
+        book = Booking(patientid=idz,doctorid=doc_id,date = date,time=time,token=length+1)
+        book.save()
     return render(request,'newpatient.html')
 
 def extpatient(request):
     return render(request,'extpatient.html')
+
+def prescription(request):
+    return render(request,'prescription.html')
 
 
 
