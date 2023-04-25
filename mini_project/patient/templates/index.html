@@ -47,7 +47,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
             <span>
               Orthoc
             </span>
@@ -60,7 +60,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="departments.html">Departments</a>
@@ -660,9 +660,9 @@
     document.getElementById("submitPatientTypeBtn").addEventListener("click", function() {
       var patientType = document.querySelector('input[name="patientTypeRadio"]:checked').value;
       if (patientType === "existing") {
-        window.location.href = "existing-patient.html";
+        window.location.href = "/extpatient/";
       } else if (patientType === "new") {
-        window.location.href = "new-patient.html";
+        window.location.href = "/newpatient";
       }
     });
   </script>
