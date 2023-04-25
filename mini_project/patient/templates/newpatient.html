@@ -149,7 +149,7 @@
           <div class="form-row">
          <div class="form-group col-md-6">
           <label for="department">Department</label>
-          <select id="department" class="form-control"onchange="showDoctors()" required>
+          <select id="department" name="department" class="form-control"onchange="showDoctors()" required>
             <option value="" selected>Select Department</option>
             <option value="department1">Cardiology</option>
             <option value="department2">Neurology</option>
@@ -159,7 +159,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="doctor">Doctor</label>
-          <select id="doctor" class="form-control" required>
+          <select id="doctor" name="doctor" class="form-control" required>
             <option value="" selected>Select Doctor</option>
           </select>
         </div>
@@ -167,12 +167,12 @@
        <div class="form-row">
          <div class="form-group col-md-6">
            <label for="date">Date</label>
-           <input type="date" class="form-control" id="date" required>
+           <input type="date" class="form-control" id="date" name="date" required>
          </div>
        
          <div class="form-group col-md-6">
            <label for="time">Time</label>
-           <input type="time" class="form-control" id="time" required>
+           <input type="time" class="form-control" id="time" name="time"  required>
          </div>
          </div>
          
