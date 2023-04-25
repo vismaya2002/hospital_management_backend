@@ -2,11 +2,7 @@ from django.shortcuts import render
 from .models import PatientDetails,Booking
 from doctor.models import Doctor
 import random
-'''from django.contrib.auth.models import User
-from .models import addInfo
-from django.contrib.auth import authenticate,login
-from django.contrib.admin.forms import AuthenticationForm
-# Create your views here.'''
+
 
 
 def home(request):
@@ -38,7 +34,7 @@ def newpatient(request):
             length = len(Booking.objects.filter(doctorid=doc_id).values())
         except:
             pass
-        book = Booking(patientid=idz,doctorid=doc_id,date = date,time=time,token=length+1)
+        book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,date = date,time=time,token=length+1)
         book.save()
         context = {
             'patientid': idz,
@@ -51,7 +47,7 @@ def newpatient(request):
             'contact' : contactnumber,
             'emergency' : emernumber
         }
-        return render(request,'profile.html',context)
+        return render(request,'patient.html',context)
     
     return render(request,'newpatient.html')
 
@@ -59,7 +55,6 @@ def extpatient(request):
     if request.method == "POST":
         patientid = request.POST.get('patientid')
         patientdetails = PatientDetails.objects.filter(patientid = patientid).values()
-        print(patientdetails)
         context = {
             'patientid': patientid,
             'firstname': patientdetails[0]['firstname'],
@@ -69,11 +64,22 @@ def extpatient(request):
             'gender' : patientdetails[0]['gender'],
             'age' : patientdetails[0]['age'],
             'contact' : patientdetails[0]['contact1'],
-            'emergency' : patientdetails[0]['emgnumber']
+            'emergency' : patientdetails[0]['emgnumber'],
         }
         return render(request,'patient.html',context)
     return render(request,'extpatient.html')
 
 def prescription(request):
     return render(request,'prescription.html')
+
+def booking(request):
+    if request.method == "POST":
+        patientid = request.POST.get('patientid')
+        print(patientid)
+        bookingdetails = Booking.objects.filter(patientid=patientid).values()
+        context = {
+            'bookingdetails' : bookingdetails
+        }
+        return render(request,'bookings.html',context)
+    return render(request,'bookings.html')
 

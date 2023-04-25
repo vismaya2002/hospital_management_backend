@@ -19,6 +19,7 @@ class PatientDetails(models.Model):
 class Booking(models.Model):
     patientid = models.CharField(max_length=20)
     doctorid = models.CharField(max_length=20)
+    doctorname = models.CharField(max_length=30)
     date = models.DateField()
     time = models.TimeField()
     token = models.IntegerField()

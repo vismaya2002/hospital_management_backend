@@ -115,7 +115,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Booking ID</th>
+					<th>Doctor ID</th>
 					<th>Doctor Name</th>
 					<th>Date</th>
 					<th>Time</th>
@@ -124,30 +124,16 @@
 				</tr>
 			</thead>
 			<tbody>
+        {% for bookingdetail in bookingdetails %}
 				<tr>
-					<td>001</td>
-					<td>Dr. John Doe</td>
-					<td>2023-04-20</td>
-					<td>10:00 AM</td>
+					<td>{{ bookingdetail.doctorid }}</td>
+					<td>{{ bookingdetail.doctorname }}</td>
+					<td>{{ bookingdetail.date }}</td>
+					<td>{{ bookingdetail.time }}</td>
 					<td>Confirmed</td>
-          <td>03</td>
+          <td>{{ bookingdetail.token }}</td>
 				</tr>
-				<tr>
-					<td>002</td>
-					<td>Dr. Jane Smith</td>
-					<td>2023-04-22</td>
-					<td>2:00 PM</td>
-					<td>Pending</td>
-          <td>-</td>
-				</tr>
-				<tr>
-					<td>003</td>
-					<td>Dr. David Lee</td>
-					<td>2023-04-25</td>
-					<td>9:00 AM</td>
-					<td>Cancelled</td>
-          <td>-</td>
-				</tr>
+        {% endfor %}
 			</tbody>
 		</table>
 	</div>
