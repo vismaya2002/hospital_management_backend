@@ -98,13 +98,12 @@
     <div class="form-container">
       <h2>Enter your unique ID</h2>
       <form method="post">
+        {% csrf_token %}
         <div class="form-group">
           <label for="id">ID:</label>
-          <input type="text" id="id" name="id" required>
+          <input type="text" id="patientid" name="patientid" required>
         </div>
-        <a href="/patient">
-          <button type="submit">Continue</button>
-        </a>
+          <input type="submit">
       </form>
     </div>
   </div>
