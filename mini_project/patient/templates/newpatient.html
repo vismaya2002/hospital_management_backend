@@ -152,9 +152,9 @@
           <label for="department">Department</label>
           <select id="department" name="department" class="form-control"onchange="showDoctors()" required>
             <option value="" selected>Select Department</option>
-            <option value="department1">Cardiology</option>
-            <option value="department2">Neurology</option>
-            <option value="department3">Orthopedics
+            <option value="Cardiology">Cardiology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Orthopedics">Orthopedics
             </option>
           </select>
         </div>
@@ -198,7 +198,7 @@
       defaultDoctor.text = "Select Doctor";
       doctorSelect.add(defaultDoctor);
         
-        if (department === "department1") {
+        if (department === "Cardiology") {
       
           
 
@@ -213,7 +213,7 @@
  
 
     
-        } else if (department === "department2") {
+        } else if (department === "Neurology") {
           
           
           var doctor3 = document.createElement("option");
@@ -225,7 +225,7 @@
           doctorSelect.add(doctor4);
 
        
-        } else if (department === "department3") {
+        } else if (department === "Orthopedics") {
           
 
           var doctor7 = document.createElement("option");
