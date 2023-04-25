@@ -40,6 +40,19 @@ def newpatient(request):
             pass
         book = Booking(patientid=idz,doctorid=doc_id,date = date,time=time,token=length+1)
         book.save()
+        context = {
+            'patientid': idz,
+            'firstname': firstname,
+            'lastname' : lastname,
+            'email' : email,
+            'address' : address,
+            'gender' : gender,
+            'age' : age,
+            'contact' : contactnumber,
+            'emergency' : emernumber
+        }
+        return render(request,'profile.html',context)
+    
     return render(request,'newpatient.html')
 
 def extpatient(request):
