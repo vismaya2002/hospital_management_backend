@@ -113,7 +113,6 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="{% static 'images/avatar.webp' %}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
 
               <h5 class="my-3">{{ firstname }} {{ lastname }}</h5>
               <p class="text-muted mb-1">{{ address }}</p>
@@ -296,7 +295,11 @@
                
               <ul class="list-group list-group-flush rounded-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <a class="nav-link" href="/bookings" style="color: black !important;">Bookings</a>
+                  <!--a class="nav-link" href="/bookings" style="color: black !important;">Bookings</a-->
+                  <form action="/bookings/" method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="patientid" value={{ patientid }}> Bookings </button>
+                  </form>
                   <span class="badge badge-primary badge-pill" id="booking-notification"></span>
                 </li>
                 

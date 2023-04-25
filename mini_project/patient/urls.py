@@ -5,4 +5,5 @@ urlpatterns = [
     path('',home),
     path('newpatient/',newpatient),
     path('extpatient/',extpatient),
+    path('bookings/',booking),
 ]
