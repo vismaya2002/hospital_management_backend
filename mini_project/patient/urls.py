@@ -9,5 +9,6 @@ urlpatterns = [
     path('prescription/',prescription),
     path('doctors/',doctors),
     path('departments/',departments),
-    path('contacts/',contacts)
+    path('contacts/',contacts),
+    path('patientbooking/',patientbooking)
 ]

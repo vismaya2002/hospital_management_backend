@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import PatientDetails,Booking
 from doctor.models import Doctor
 import random
@@ -92,6 +92,27 @@ def departments(request):
 def contacts(request):
     return render(request,'contact.html')
 
+def patientbooking(request):
+    if request.method=="POST":
+        patientid = request.POST.get('patientid')
+        department = request.POST.get('department')
+        doctor = request.POST.get('doctor')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        doc = Doctor.objects.filter(department=department,doctorname=doctor).values()
+        doc_id = doc[0]['doctorid']
+        length = 0
+        try:
+            length = len(Booking.objects.filter(doctorid=doc_id).values())
+        except:
+            pass
+        book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,date = date,time=time,token=length+1)
+        book.save()
+        bookingdetails = Booking.objects.filter(patientid=patientid).values()
+        context = {
+            'bookingdetails' : bookingdetails
+        }
+        return render(request,'bookings.html',context)
 
 
 
