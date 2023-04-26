@@ -83,3 +83,13 @@ def booking(request):
         return render(request,'bookings.html',context)
     return render(request,'bookings.html')
 
+def doctors(request):
+    return render(request,'doctors.html')
+
+def departments(request):
+    return render(request,'depaartments.html')
+
+def contacts(request):
+    return render(request,'contact.html')
+
+
