@@ -6,4 +6,8 @@ urlpatterns = [
     path('newpatient/',newpatient),
     path('extpatient/',extpatient),
     path('bookings/',booking),
+    path('prescription/',prescription),
+    path('doctors/',doctors),
+    path('departments/',departments),
+    path('contacts/',contacts)
 ]
