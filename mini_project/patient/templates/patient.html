@@ -64,7 +64,7 @@
       <header class="header_section">
         <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <span>
                 Orthoc
               </span>
@@ -77,19 +77,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home </a>
+                  <a class="nav-link" href="/">Home </a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="departments.html">Departments <span class="sr-only">(current)</span> </a>
+                  <a class="nav-link" href="/departments">Departments <span class="sr-only">(current)</span> </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="doctors.html">Doctors</a>
+                  <a class="nav-link" href="/doctors">Doctors</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="patient.html">Patient</a>
+                  <a class="nav-link" href="/patient">Patient</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
+                  <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
                 <form class="form-inline">
                   <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -114,7 +114,7 @@
           <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
 
             <ol class="breadcrumb mb-0" style="background-color: #e7e7e7;">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
             
               <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
@@ -181,7 +181,7 @@
           </div>
         </form>
       </div>
-      <a href="patient.html" data-toggle="modal" data-target="#exampleModal">
+      <a href="/patient" data-toggle="modal" data-target="#exampleModal">
         <button type="button" class="btn btn-primary" id="book-appointment-btn">Book Appointment</button>
       </a>
 
@@ -309,27 +309,31 @@
                
               <ul class="list-group list-group-flush rounded-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <a class="nav-link" href="bookings.html" style="color: black !important;">Bookings</a>
+                  <form action="/bookings/" method="post">
+                      {% csrf_token %}
+                      <button type="submit" name="patientid" value={{ patientid }}> Bookings</button>
+
+                  </form>
                   <span class="badge badge-primary badge-pill" id="booking-notification"></span>
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="prescription.html" style="color: black !important;">Medical History</a>
+                  <a class="nav-link" href="/prescription" style="color: black !important;">Medical History</a>
 
                     <p class="mb-0"></p>
                     
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="pharmacy.html" style="color: black !important;">Pharmacy</a>
+                  <a class="nav-link" href="/pharmacy" style="color: black !important;">Pharmacy</a>
 
                     <p class="mb-0"></p>
                     
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="account.html" style="color: black !important;">Account</a>
+                  <a class="nav-link" href="/account" style="color: black !important;">Account</a>
 
                     <p class="mb-0"></p>
                     
@@ -463,16 +467,16 @@
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.html">
+              <a class="active" href="/">
                 Home
               </a>
-              <a class="" href="departments.html">
+              <a class="" href="/departments">
                 Departments
               </a>
-              <a class="" href="doctors.html">
+              <a class="" href="/doctors">
                 Doctors
               </a>
-              <a class="" href="contact.html">
+              <a class="" href="/contact">
                 Contact Us
               </a>
             </div>
