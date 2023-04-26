@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -11,7 +12,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+  <link rel="shortcut icon" href="images/favicon.png" type="">
 
   <title> Orthoc </title>
 
@@ -31,8 +32,22 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- jQuery and Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
   
-  
+
 </head>
 
  <!--header-->
@@ -42,53 +57,51 @@
     <div class="hero_area">
   
       <div class="hero_bg_box">
-        <img src="{% static 'images/hero-bg.png' %}" alt="">
+        <img src="images/hero-bg.png" alt="">
       </div>
   
-      
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/">
-            <span>
-              Orthoc
-            </span>
-          </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/departments">Departments</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/doctors">Doctors</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/signin">Patient</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
-              </li>
-              
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                Orthoc
+              </span>
+            </a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="departments.html">Departments <span class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="doctors.html">Doctors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="patient.html">Patient</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
     </div>
    <!--end of header -->
 <br>
@@ -101,7 +114,7 @@
           <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
 
             <ol class="breadcrumb mb-0" style="background-color: #e7e7e7;">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             
               <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
@@ -113,10 +126,11 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-
-              <h5 class="my-3">{{ firstname }} {{ lastname }}</h5>
-              <p class="text-muted mb-1">{{ address }}</p>
-              <p class="text-muted mb-4">Patient Id {{ patientid }}</p>
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">John Smith</h5>
+              <p class="text-muted mb-1">Bay Area, San Francisco</p>
+              <p class="text-muted mb-4">Unique Id - JS1034</p>
               
               <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -134,7 +148,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post">
+        <form action="payment.html">
           <div class="form-group">
             <label for="department" style="text-align: left;">Department</label>
             <select class="form-control" id="department" onchange="showDoctors()" required>
@@ -167,7 +181,7 @@
           </div>
         </form>
       </div>
-      <a href="/patient" data-toggle="modal" data-target="#exampleModal">
+      <a href="patient.html" data-toggle="modal" data-target="#exampleModal">
         <button type="button" class="btn btn-primary" id="book-appointment-btn">Book Appointment</button>
       </a>
 
@@ -295,31 +309,27 @@
                
               <ul class="list-group list-group-flush rounded-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <!--a class="nav-link" href="/bookings" style="color: black !important;">Bookings</a-->
-                  <form action="/bookings/" method="post">
-                    {% csrf_token %}
-                    <button type="submit" name="patientid" value={{ patientid }}> Bookings </button>
-                  </form>
+                  <a class="nav-link" href="bookings.html" style="color: black !important;">Bookings</a>
                   <span class="badge badge-primary badge-pill" id="booking-notification"></span>
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="/prescription" style="color: black !important;">Medical History</a>
+                  <a class="nav-link" href="prescription.html" style="color: black !important;">Medical History</a>
 
                     <p class="mb-0"></p>
                     
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="/pharmacy" style="color: black !important;">Pharmacy</a>
+                  <a class="nav-link" href="pharmacy.html" style="color: black !important;">Pharmacy</a>
 
                     <p class="mb-0"></p>
                     
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="/account" style="color: black !important;">Account</a>
+                  <a class="nav-link" href="account.html" style="color: black !important;">Account</a>
 
                     <p class="mb-0"></p>
                     
@@ -343,7 +353,7 @@
                  <p class="mb-0">Full Name</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ firstname}} {{ lastname }}</p><br>
+                  <p class="text-muted mb-0">Johnatan Smith</p><br>
                 </div>
               </div>
               <hr>
@@ -352,7 +362,7 @@
                   <p class="mb-0">Email</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ email }}</p><br>
+                  <p class="text-muted mb-0">example@example.com</p><br>
                 </div>
               </div>
               <hr>
@@ -361,7 +371,7 @@
                   <p class="mb-0">Phone</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ contact }}</p><br>
+                  <p class="text-muted mb-0">(097) 234-5678</p><br>
                 </div>
               </div>
               <hr>
@@ -370,7 +380,7 @@
                   <p class="mb-0">Gender</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ gender }}</p>
+                  <p class="text-muted mb-0">Male</p>
                 </div>
               </div>
               <hr>
@@ -379,7 +389,7 @@
                   <p class="mb-0">Address</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ address }}</p>
+                  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
                 </div>
               </div>
             </div>
@@ -392,8 +402,8 @@
   </section>
 </div>
 <br>
-   <!-- footer section -->
-   <footer class="footer_section">
+  <!-- footer section -->
+  <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-lg-3 footer_col">
@@ -453,16 +463,16 @@
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="/">
+              <a class="active" href="index.html">
                 Home
               </a>
-              <a class="" href="/departments">
+              <a class="" href="departments.html">
                 Departments
               </a>
-              <a class="" href="/doctors">
+              <a class="" href="doctors.html">
                 Doctors
               </a>
-              <a class="" href="/contact">
+              <a class="" href="contact.html">
                 Contact Us
               </a>
             </div>
