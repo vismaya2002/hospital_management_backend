@@ -150,6 +150,11 @@
       <div class="modal-body">
         <form action="payment.html">
           <div class="form-group">
+            <label for="patient-id" style="text-align: left;">Patient ID</label>
+            <input type="text" class="form-control" id="patient-id" value="unique id" readonly>
+          </div>
+          
+          <div class="form-group">
             <label for="department" style="text-align: left;">Department</label>
             <select class="form-control" id="department" onchange="showDoctors()" required>
               <option value="" selected>Choose department</option>
@@ -175,10 +180,7 @@
             <label for="time" style="text-align: left;">Time</label>
             <input type="time" class="form-control" id="time" required>
           </div>
-          <div class="form-group">
-            <label for="note" style="text-align: left;">Note to doctor</label>
-            <textarea class="form-control" id="note" rows="3"></textarea>
-          </div>
+         
         </form>
       </div>
       <a href="/patient" data-toggle="modal" data-target="#exampleModal">
@@ -319,7 +321,7 @@
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   
-                  <a class="nav-link" href="/prescription" style="color: black !important;">Medical History</a>
+                  <a class="nav-link" href="/prescription" style="color: black !important;">Prescription</a>
 
                     <p class="mb-0"></p>
                     
@@ -331,14 +333,7 @@
                     <p class="mb-0"></p>
                     
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  
-                  <a class="nav-link" href="/account" style="color: black !important;">Account</a>
-
-                    <p class="mb-0"></p>
-                    
-                </li>
-            
+                
             
             
                
@@ -394,6 +389,15 @@
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Age</p><br>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">44</p>
                 </div>
               </div>
             </div>
