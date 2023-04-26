@@ -128,9 +128,9 @@
             <div class="card-body text-center">
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">John Smith</h5>
-              <p class="text-muted mb-1">Bay Area, San Francisco</p>
-              <p class="text-muted mb-4">Unique Id - JS1034</p>
+              <h5 class="my-3">{{firstname}} {{lastname}}</h5>
+              <p class="text-muted mb-1">{{address}}</p>
+              <p class="text-muted mb-4">Patient Id - {{patientid}}</p>
               
               <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -356,7 +356,7 @@
                  <p class="mb-0">Full Name</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Johnatan Smith</p><br>
+                  <p class="text-muted mb-0">{{firstname}} {{lastname}}</p><br>
                 </div>
               </div>
               <hr>
@@ -365,7 +365,7 @@
                   <p class="mb-0">Email</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">example@example.com</p><br>
+                  <p class="text-muted mb-0">{{email}}</p><br>
                 </div>
               </div>
               <hr>
@@ -374,7 +374,7 @@
                   <p class="mb-0">Phone</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">(097) 234-5678</p><br>
+                  <p class="text-muted mb-0">{{contact}}</p><br>
                 </div>
               </div>
               <hr>
@@ -383,7 +383,7 @@
                   <p class="mb-0">Gender</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Male</p>
+                  <p class="text-muted mb-0">{{gender}}</p>
                 </div>
               </div>
               <hr>
@@ -392,7 +392,7 @@
                   <p class="mb-0">Address</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                  <p class="text-muted mb-0">{{address}}</p>
                 </div>
               </div>
             </div>
