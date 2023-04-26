@@ -92,6 +92,14 @@ def departments(request):
 def contacts(request):
     return render(request,'contact.html')
 
+def patientbooking(request):
+    if request.method=="POST":
+        patientid = request.POST.get('patientid')
+        department = request.POST.get('department')
+        doctor = request.POST.get('doctor')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        print(patientid)
 
 
 
