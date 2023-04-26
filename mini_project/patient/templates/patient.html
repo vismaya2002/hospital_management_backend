@@ -148,7 +148,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/patientbooking/">
+        <form action="/patientbooking/" method="post">
           {% csrf_token %} 
           <div class="form-group">
             <label for="patientid" style="text-align: left;">Patient ID</label>
@@ -180,11 +180,9 @@
             <label for="time" style="text-align: left;">Time</label>
             <input type="time" class="form-control" id="time" name="time" required>
           </div>
+          <input type="submit" class="btn btn-primary">
         </form>
       </div>
-      <a href="/patientbooking/" data-toggle="modal" data-target="#exampleModal">
-        <button type="button" class="btn btn-primary" id="book-appointment-btn">Book Appointment</button>
-      </a>
 
       
     </div>
