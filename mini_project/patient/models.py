@@ -13,13 +13,17 @@ class PatientDetails(models.Model):
     contact1 = models.IntegerField()
     emgnumber = models.IntegerField()
 
-
+ 
 
 
 class Booking(models.Model):
     patientid = models.CharField(max_length=20)
     doctorid = models.CharField(max_length=20)
     doctorname = models.CharField(max_length=30)
+    department = models.CharField(max_length=30)
     date = models.DateField()
     time = models.TimeField()
     token = models.IntegerField()
+    symptoms = models.TextField(default='')
+    prescription = models.TextField(default='')
+    remedies = models.TextField(default='')

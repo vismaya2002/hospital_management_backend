@@ -3,8 +3,6 @@ from .models import PatientDetails,Booking
 from doctor.models import Doctor
 import random
 
-
-
 def home(request):
     return render(request,'index.html')
 
@@ -22,7 +20,7 @@ def newpatient(request):
         doctor = request.POST.get('doctor')
         date = request.POST.get('date')
         time = request.POST.get('time')
-
+        
         idz = "#OR"+str(random.randint(10000,100000))
         patient = PatientDetails(patientid = idz,firstname = firstname,lastname=lastname,email=email,address=address,age=age,gender=gender,contact1=contactnumber,emgnumber=emernumber)
         patient.save()
@@ -34,7 +32,7 @@ def newpatient(request):
             length = len(Booking.objects.filter(doctorid=doc_id).values())
         except:
             pass
-        book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,date = date,time=time,token=length+1)
+        book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
         book.save()
         context = {
             'patientid': idz,
@@ -74,7 +72,7 @@ def prescription(request):
 
 def booking(request):
     if request.method == "POST":
-        patientid = request.POST.get('patientid')
+        patientid = request.POST.get('patientid') 
         print(patientid)
         bookingdetails = Booking.objects.filter(patientid=patientid).values()
         context = {
@@ -106,15 +104,10 @@ def patientbooking(request):
             length = len(Booking.objects.filter(doctorid=doc_id).values())
         except:
             pass
-        book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,date = date,time=time,token=length+1)
+        book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
         book.save()
         bookingdetails = Booking.objects.filter(patientid=patientid).values()
         context = {
             'bookingdetails' : bookingdetails
         }
         return render(request,'bookings.html',context)
-
-
-
-
-
