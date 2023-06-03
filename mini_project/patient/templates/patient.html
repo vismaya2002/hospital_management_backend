@@ -79,9 +79,9 @@
             <div class="card-body text-center">
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">John Smith</h5>
-              <p class="text-muted mb-1">Bay Area, San Francisco</p>
-              <p class="text-muted mb-4">Unique Id - JS1034</p>
+              <h5 class="my-3">{{firstname}} {{lastname}}</h5>
+              <p class="text-muted mb-1">{{address}}</p>
+              <p class="text-muted mb-4">Patient Id - {{patientid}}</p>
               
               <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -99,7 +99,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="payment.html">
+        <form action="/patientbooking/" method="post">
+          {% csrf_token %} 
+          <div class="form-group">
+            <label for="patientid" style="text-align: left;">Patient ID</label>
+            <input type="text" class="form-control" id="patientid" name="patientid" value={{ patientid }} readonly required>
+          </div>
           <div class="form-group">
             <label for="patient-id" style="text-align: left;">Patient ID</label>
             <input type="text" class="form-control" id="patient-id" value="unique id" readonly>
@@ -107,36 +112,33 @@
           
           <div class="form-group">
             <label for="department" style="text-align: left;">Department</label>
-            <select class="form-control" id="department" onchange="showDoctors()" required>
+            <select class="form-control" id="department" name ="department" onchange="showDoctors()" required>
               <option value="" selected>Choose department</option>
-              <option value="department1">Cardiology</option>
-              <option value="department2">Neurology</option>
-              <option value="department3">Orthopedics</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Orthopedics">Orthopedics</option>
             </select>
           </div>
           
           <div class="form-group">
             <label for="doctor" style="text-align: left;">Doctor</label>
           
-              <select id="doctor" class="form-control" required>
+              <select id="doctor" name="doctor" class="form-control" required>
                 <option value="" selected>Select Doctor</option>
               </select>
             
           </div>
           <div class="form-group">
             <label for="date" style="text-align: left;">Date</label>
-            <input type="date" class="form-control" id="date" required>
+            <input type="date" class="form-control" id="date" name="date" required>
           </div>
           <div class="form-group">
             <label for="time" style="text-align: left;">Time</label>
-            <input type="time" class="form-control" id="time" required>
+            <input type="time" class="form-control" id="time" name="time" required>
           </div>
-         
+          <input type="submit" class="btn btn-primary">
         </form>
       </div>
-      <a href="/patient" data-toggle="modal" data-target="#exampleModal">
-        <button type="button" class="btn btn-primary" id="book-appointment-btn">Book Appointment</button>
-      </a>
 
       
     </div>
@@ -162,7 +164,7 @@
             defaultDoctor.text = "Select Doctor";
             doctorSelect.add(defaultDoctor);
               
-              if (department === "department1") {
+              if (department === "Cardiology") {
             
                 
       
@@ -177,7 +179,7 @@
        
       
           
-              } else if (department === "department2") {
+              } else if (department === "Neurology") {
                 
                 
                 var doctor3 = document.createElement("option");
@@ -189,7 +191,7 @@
                 doctorSelect.add(doctor4);
       
              
-              } else if (department === "department3") {
+              } else if (department === "Orthopedics") {
                 
       
                 var doctor7 = document.createElement("option");
@@ -303,7 +305,7 @@
                  <p class="mb-0">Full Name</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Johnatan Smith</p><br>
+                  <p class="text-muted mb-0">{{firstname}} {{lastname}}</p><br>
                 </div>
               </div>
               <hr>
@@ -312,7 +314,7 @@
                   <p class="mb-0">Email</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">example@example.com</p><br>
+                  <p class="text-muted mb-0">{{email}}</p><br>
                 </div>
               </div>
               <hr>
@@ -321,7 +323,7 @@
                   <p class="mb-0">Phone</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">(097) 234-5678</p><br>
+                  <p class="text-muted mb-0">{{contact}}</p><br>
                 </div>
               </div>
               <hr>
@@ -330,7 +332,7 @@
                   <p class="mb-0">Gender</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Male</p>
+                  <p class="text-muted mb-0">{{gender}}</p>
                 </div>
               </div>
               <hr>
@@ -339,7 +341,7 @@
                   <p class="mb-0">Address</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                  <p class="text-muted mb-0">{{address}}</p>
                 </div>
               </div>
               <hr>
