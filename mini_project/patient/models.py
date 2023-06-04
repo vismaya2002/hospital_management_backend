@@ -27,3 +27,7 @@ class Booking(models.Model):
     symptoms = models.TextField(default='')
     prescription = models.TextField(default='')
     remedies = models.TextField(default='')
+
+class Otp(models.Model):
+    patientid = models.CharField(max_length=20,primary_key=True)
+    otp = models.IntegerField(default=0)

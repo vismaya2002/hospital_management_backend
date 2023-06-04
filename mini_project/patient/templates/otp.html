@@ -47,13 +47,26 @@
    <br> <br> <br> <br><br><br>
    <div class="otp-container">
     <h2>Enter Your OTP</h2>
-    <form>
+    <form method ="post" action="/otp/">
+      {%csrf_token%}
       <input type="text" placeholder="Enter OTP" name="otp" required>
+      <input type="hidden" name="firstname" value="{{firstname}}">
+      <input type="hidden"  name="lastname" value="{{lastname}}">
+      <input type="hidden"  name="email" value="{{email}}">
+      <input type="hidden"  name="address" value="{{address}}">
+      <input type="hidden"  name="age" value="{{age}}">
+      <input type="hidden" name="gender" value="{{gender}}">
+      <input type="hidden" name="contactnumber" value="{{contactnumber}}">
+      <input type="hidden"  name="emernumber" value="{{emernumber}}">
+      <input type="hidden"  name="department" value="{{department}}">
+      <input type="hidden"  name="doctor" value="{{doctor}}">
+      <input type="hidden"  name="date" value="{{date}}">
+      <input type="hidden"  name="time" value="{{time}}">
+      <input type="hidden"  name="idz" value="{{idz}}">
+
       <button type="submit">Verify</button>
     </form>
   </div>
-  
-
 
 
 

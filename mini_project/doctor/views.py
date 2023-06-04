@@ -3,8 +3,8 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-from patient.models import Booking
-from .serializers import doctorSerializer,bookingSerializer
+from patient.models import Booking,PatientDetails
+from .serializers import doctorSerializer,bookingSerializer,patientSerializer
 from .models import Doctor
 
 # Create your views here.
@@ -17,6 +17,16 @@ def details(request,pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         srData = doctorSerializer(dataz)
+        return Response(srData.data,status=status.HTTP_200_OK)
+    
+@api_view(['GET'])
+def ptdetails(request,pk):
+    try:
+        dataz = PatientDetails.objects.get(pk='#'+pk)
+    except PatientDetails.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        srData = patientSerializer(dataz)
         return Response(srData.data,status=status.HTTP_200_OK)
     
 @api_view(['GET'])
@@ -44,7 +54,7 @@ def history(request,pk,pt):
 @api_view(['PUT'])
 def checkup(request,pk):
     try:
-        dataz = Booking.objects.get(pk=pk)
+        dataz = Booking.objects.get (pk=pk)
     except Booking.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == "PUT":

@@ -10,5 +10,7 @@ urlpatterns = [
     path('doctors/',doctors),
     path('departments/',departments),
     path('contacts/',contacts),
-    path('patientbooking/',patientbooking)
+    path('patientbooking/',patientbooking),
+    path('otp/',otp),
+    path('otpext/',otpext),
 ]
