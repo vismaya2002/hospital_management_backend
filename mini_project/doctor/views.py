@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view
 from patient.models import Booking,PatientDetails
 from .serializers import doctorSerializer,bookingSerializer,patientSerializer
 from .models import Doctor
+from datetime import date
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def ptdetails(request,pk):
 @api_view(['GET'])
 def booking(request,pk):
     try:
-        dataz = Booking.objects.filter(doctorid='#'+pk)
+        dataz = Booking.objects.filter(doctorid='#'+pk,date=date.today())
     except Booking.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':

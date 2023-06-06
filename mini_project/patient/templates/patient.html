@@ -105,10 +105,7 @@
             <label for="patientid" style="text-align: left;">Patient ID</label>
             <input type="text" class="form-control" id="patientid" name="patientid" value={{ patientid }} readonly required>
           </div>
-          <div class="form-group">
-            <label for="patient-id" style="text-align: left;">Patient ID</label>
-            <input type="text" class="form-control" id="patient-id" value="unique id" readonly>
-          </div>
+          
           
           <div class="form-group">
             <label for="department" style="text-align: left;">Department</label>
@@ -350,7 +347,7 @@
                   <p class="mb-0">Age</p><br>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">44</p>
+                  <p class="text-muted mb-0">{{age}}</p>
                 </div>
               </div>
             </div>
