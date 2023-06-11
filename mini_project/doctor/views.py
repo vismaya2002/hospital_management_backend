@@ -7,7 +7,8 @@ from patient.models import Booking,PatientDetails
 from .serializers import doctorSerializer,bookingSerializer,patientSerializer
 from .models import Doctor
 from datetime import date
-
+from .otp import sms
+from datetime import datetime
 # Create your views here.
 
 @api_view(['GET'])
@@ -64,3 +65,22 @@ def checkup(request,pk):
             srData.save()
             return Response(srData.data,status=status.HTTP_200_OK)
         return Response(srData.errors,status = status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST'])
+def docinout(request,pk,pt):
+    # try:
+    
+    dataz = Booking.objects.filter(doctorid="#"+pk,date=datetime.today()).values()
+    docname = dataz[0]['doctorname']
+    id = []
+    for i in dataz:
+        id.append(i['patientid'])
+    print(id)
+    for i in id:
+        dataz = PatientDetails.objects.filter(patientid=i).values()
+        print(dataz[0]['contact1'])
+        if pt=="in":
+            sms('+91'+str(dataz[0]['contact1']),f'{docname} is in ketto')
+        else:
+            sms('+91'+str(dataz[0]['contact1']),f'{docname} is out ketto')
+    return Response(status=status.HTTP_200_OK)

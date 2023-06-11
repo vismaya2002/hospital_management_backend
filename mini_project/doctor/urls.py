@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import details,booking,history,checkup,ptdetails
+from .views import details,booking,history,checkup,ptdetails,docinout
 
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/booking/<str:pk>',booking),
     path('api/history/<str:pk>/<str:pt>',history),
     path('api/checkup/<str:pk>',checkup),
+    path('api/doctor/<str:pk>/<str:pt>',docinout),
 ]
