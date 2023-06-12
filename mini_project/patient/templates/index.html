@@ -99,7 +99,7 @@
                       We Provide Best Healthcare
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                      ORTHOC Group constitutes the best hospital in India with over 10,000 beds across 73 hospitals, 5000+ pharmacies, over 300 clinics, 1100+ diagnostic centres and 200+ Telemedicine units.
                     </p>
                     <div class="btn-box">
                      <!-- Modal -->
@@ -150,13 +150,43 @@
                       We Provide Best Healthcare
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                      ORTHOC Group constitutes the best hospital in India with over 10,000 beds across 73 hospitals, 5000+ pharmacies, over 300 clinics, 1100+ diagnostic centres and 200+ Telemedicine units.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Book Now
-                      </a>
-                    </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="patientTypeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title w-100 font-weight-bold">Are you an existing or new patient?</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="form-check">
+                                  <input type="radio" class="form-check-input" id="existingPatientRadio" name="patientTypeRadio" value="existing">
+                                  <label class="form-check-label" for="existingPatientRadio" style="color: #3c3a34;">Existing Patient</label>
+
+                                </div>
+                                <div class="form-check">
+                                  <input type="radio" class="form-check-input" id="newPatientRadio" name="patientTypeRadio" value="new">
+                                  <label class="form-check-label" for="newPatientRadio" style="color: #3c3a34;">New Patient</label>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitPatientTypeBtn" style="background-color: #4baf84; color: #ffffff;">Continue</button>
+
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="text-center">
+                            <a href="#" class="btn btn-default btn-rounded mb-4" style="background-color: #ffffff; color: #62d2a2;" data-toggle="modal" data-target="#patientTypeModal2">Book Now</a>
+
+                    </div></div>
                   </div>
                 </div>
               </div>
@@ -171,12 +201,43 @@
                       We Provide Best Healthcare
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                      ORTHOC Group constitutes the best hospital in India with over 10,000 beds across 73 hospitals, 5000+ pharmacies, over 300 clinics, 1100+ diagnostic centres and 200+ Telemedicine units.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Book Now
-                      </a>
+                       <!-- Modal -->
+                       <div class="modal fade" id="patientTypeModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title w-100 font-weight-bold">Are you an existing or new patient?</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-check">
+                                <input type="radio" class="form-check-input" id="existingPatientRadio" name="patientTypeRadio" value="existing">
+                                <label class="form-check-label" for="existingPatientRadio" style="color: #3c3a34;">Existing Patient</label>
+
+                              </div>
+                              <div class="form-check">
+                                <input type="radio" class="form-check-input" id="newPatientRadio" name="patientTypeRadio" value="new">
+                                <label class="form-check-label" for="newPatientRadio" style="color: #3c3a34;">New Patient</label>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitPatientTypeBtn" style="background-color: #4baf84; color: #ffffff;">Continue</button>
+
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" class="btn btn-default btn-rounded mb-4" style="background-color: #ffffff; color: #62d2a2;" data-toggle="modal" data-target="#patientTypeModal3">Book Now</a>
+
+</div>
                     </div>
                   </div>
                 </div>
@@ -657,16 +718,34 @@
   </script>
   <!-- End Google Map -->
 
-  <script>
-    document.getElementById("submitPatientTypeBtn").addEventListener("click", function() {
-      var patientType = document.querySelector('input[name="patientTypeRadio"]:checked').value;
-      if (patientType === "existing") {
-        window.location.href = "/extpatient/";
-      } else if (patientType === "new") {
-        window.location.href = "/newpatient";
-      }
+ <!-- Add this JavaScript code after the HTML content -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get the "Continue" buttons
+    const continueButtons = document.querySelectorAll("#submitPatientTypeBtn");
+
+    // Handle click event for each button
+    continueButtons.forEach(function(button) {
+      button.addEventListener("click", function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Get the selected patient type (existing or new)
+        const patientType = document.querySelector(`input[name="patientTypeRadio"]:checked`).value;
+
+        // Redirect the user based on the selected patient type
+        if (patientType === "existing") {
+          // Redirect to the existing patient page
+          window.location.href = "/extpatient";
+        } else if (patientType === "new") {
+          // Redirect to the new patient page
+          window.location.href = "/newpatient";
+        }
+      });
     });
-  </script>
+  });
+</script>
+
   
 
 </body>
