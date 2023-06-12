@@ -31,3 +31,9 @@ class Booking(models.Model):
 class Otp(models.Model):
     patientid = models.CharField(max_length=20,primary_key=True)
     otp = models.IntegerField(default=0)
+
+
+class HealthRecord(models.Model):
+    health_condition = models.CharField(max_length=100)
+    assigned_priority = models.IntegerField()
+    index_number = models.CharField(max_length=10)   
