@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from .models import PatientDetails,Booking,Otp
 from doctor.models import Doctor
 import random
+import datetime
 from .otp import sms
 def home(request):
     return render(request,'index.html')
@@ -72,7 +73,7 @@ def otp(request):
             print(doc_id)
             length = 0
             try:
-                length = len(Booking.objects.filter(doctorid=doc_id).values())
+                length = len(Booking.objects.filter(doctorid=doc_id,date=datetime.today()).values())
             except:
                 pass
             book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
@@ -183,7 +184,7 @@ def patientbooking(request):
         doc_id = doc[0]['doctorid']
         length = 0
         try:
-            length = len(Booking.objects.filter(doctorid=doc_id).values())
+            length = len(Booking.objects.filter(doctorid=doc_id,date=datetime.today()).values())
         except:
             pass
         book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
