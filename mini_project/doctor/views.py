@@ -80,7 +80,7 @@ def docinout(request,pk,pt):
         dataz = PatientDetails.objects.filter(patientid=i).values()
         print(dataz[0]['contact1'])
         if pt=="in":
-            sms('+91'+str(dataz[0]['contact1']),f'{docname} is in ketto')
+            sms('+91'+str(dataz[0]['contact1']),f'{docname} is currently IN')
         else:
-            sms('+91'+str(dataz[0]['contact1']),f'{docname} is out ketto')
+            sms('+91'+str(dataz[0]['contact1']),f'{docname} is currently OUT')
     return Response(status=status.HTTP_200_OK)

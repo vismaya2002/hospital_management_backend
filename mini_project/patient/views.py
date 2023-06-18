@@ -73,7 +73,7 @@ def otp(request):
             print(doc_id)
             length = 0
             try:
-                length = len(Booking.objects.filter(doctorid=doc_id,date=datetime.today()).values())
+                length = len(Booking.objects.filter(doctorid=doc_id,date=date).values())
             except:
                 pass
             book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
@@ -184,7 +184,7 @@ def patientbooking(request):
         doc_id = doc[0]['doctorid']
         length = 0
         try:
-            length = len(Booking.objects.filter(doctorid=doc_id,date=datetime.today()).values())
+            length = len(Booking.objects.filter(doctorid=doc_id,date=date).values())
         except:
             pass
         book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
