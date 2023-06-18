@@ -129,9 +129,11 @@
             <label for="date" style="text-align: left;">Date</label>
             <input type="date" class="form-control" id="date" name="date" required>
           </div>
-          <div class="form-group">
-            <label for="time" style="text-align: left;">Time</label>
-            <input type="time" class="form-control" id="time" name="time" required>
+          <div class="form-group ">
+            <label for="time"  style="text-align: left;">Time</label>
+            <select class="form-control" id="time" name="time" required>
+              <option value="">Select Time</option>
+            </select>
           </div>
           <input type="submit" class="btn btn-primary">
         </form>
@@ -142,119 +144,145 @@
   </div>
 </div>
 
-              
+<script>
+  function showDoctors() {
+    var department = document.getElementById("department").value;
+    var doctorSelect = document.getElementById("doctor");
+    var dateInput = document.getElementById("date");
+    var timeSelect = document.getElementById("time");
+    doctorSelect.innerHTML = "";
+    timeSelect.innerHTML = "";
+
+    // Add the default "Select Doctor" option
+    var defaultDoctor = document.createElement("option");
+    defaultDoctor.value = "";
+    defaultDoctor.text = "Select Doctor";
+    doctorSelect.add(defaultDoctor);
+    
+    // Add the default "Select Time" option
+    var defaultTime = document.createElement("option");
+    defaultTime.value = "";
+    defaultTime.text = "Select Time";
+    timeSelect.add(defaultTime);
+
+    if (department === "Cardiology") {
+      var doctor2 = document.createElement("option");
+      doctor2.text = "Dr. Jane Smith";
+      doctorSelect.add(doctor2);
+
+      var doctor3 = document.createElement("option");
+      doctor3.text = "Dr. Sarah Johnson";
+      doctorSelect.add(doctor3);
+    } else if (department === "Neurology") {
+      var doctor3 = document.createElement("option");
+      doctor3.text = "Dr. David Lee";
+      doctorSelect.add(doctor3);
+
+      var doctor4 = document.createElement("option");
+      doctor4.text = "Dr. Maria Rodriguez";
+      doctorSelect.add(doctor4);
+    } else if (department === "Orthopedics") {
+      var doctor7 = document.createElement("option");
+      doctor7.text = "Dr. Emily Chen";
+      doctorSelect.add(doctor7);
+
+      var doctor6 = document.createElement("option");
+      doctor6.text = "Dr. Lisa Patel";
+      doctorSelect.add(doctor6);
+    }
+
+    // Set the available dates and times based on the selected doctor
+    doctorSelect.addEventListener("change", function () {
+      // Get the selected doctor
+      var doctor = doctorSelect.value;
+
+      // Update the date and time inputs based on the selected doctor
+      if (doctor === "Dr. Jane Smith") {
+        dateInput.value = "2023-06-01";
+        dateInput.min = "2023-06-01";
+        dateInput.max = "2023-06-07";
+
+        var timeOptions = [
+          { value: "09:00", text: "09:00 AM" },
+          { value: "10:00", text: "10:00 AM" },
+          { value: "1:00", text: "1:00 PM" },
+        ];
+      } else if (doctor === "Dr. Sarah Johnson") {
+        dateInput.value = "2023-06-02";
+        dateInput.min = "2023-06-02";
+        dateInput.max = "2023-06-08";
+
+        var timeOptions = [
+          { value: "13:00", text: "01:00 PM" },
+          { value: "14:00", text: "02:00 PM" },
+          { value: "15:00", text: "03:00 PM" },
+        ];
+      } else if (doctor === "Dr. David Lee") {
+        dateInput.value = "2023-06-03";
+        dateInput.min = "2023-06-03";
+        dateInput.max = "2023-06-09";
+
+        var timeOptions = [
+          { value: "13:00", text: "01:00 PM" },
+          { value: "14:00", text: "02:00 PM" },
+          { value: "15:00", text: "03:00 PM" },
+          // Define time options for Dr. David Lee
+        ];
+      } else if (doctor === "Dr. Maria Rodriguez") {
+        dateInput.value = "2023-06-04";
+        dateInput.min = "2023-06-04";
+        dateInput.max = "2023-06-10";
+
+        var timeOptions = [
+          { value: "13:00", text: "01:00 PM" },
+          { value: "14:00", text: "02:00 PM" },
+          { value: "15:00", text: "03:00 PM" },
+          // Define time options for Dr. Maria Rodriguez
+        ];
+      } else if (doctor === "Dr. Lisa Patel") {
+        dateInput.value = "2023-06-06";
+        dateInput.min = "2023-06-06";
+        dateInput.max = "2023-06-12";
+
+        var timeOptions = [
+          { value: "11:00", text: "11:00 AM" },
+          { value: "14:00", text: "02:00 PM" },
+          { value: "16:00", text: "03:00 PM" },
+          // Define time options for Dr. Lisa Patel
+        ];
+      }
+
+      // Clear existing time options
+      timeSelect.innerHTML = "";
+      
+      // Add the default "Select Time" option
+      timeSelect.add(defaultTime);
+
+      // Sort and populate the time options
+      timeOptions.forEach(function (option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.text = option.text;
+        timeSelect.add(optionElement);
+      });
+    });
+  }
+  window.addEventListener("DOMContentLoaded", function () {
+var timeSelect = document.getElementById("time");
+
+// Add the default "Select Time" option
+var defaultTime = document.createElement("option");
+defaultTime.value = "";
+defaultTime.text = "Select Time";
+timeSelect.add(defaultTime);
+});
+</script>
+
               
             </div>
           </div>
 
-          <script>
-            function showDoctors() {
-              var department = document.getElementById("department").value;
-              var doctorSelect = document.getElementById("doctor");
-              var dateInput = document.getElementById("date");
-              var timeInput = document.getElementById("time");
-              doctorSelect.innerHTML = "";
-      
-            // add the default "Select Doctor" option
-            var defaultDoctor = document.createElement("option");
-            defaultDoctor.value = "";
-            defaultDoctor.text = "Select Doctor";
-            doctorSelect.add(defaultDoctor);
-              
-              if (department === "Cardiology") {
-            
-                
-      
-                var doctor2 = document.createElement("option");
-                doctor2.text = "Dr. Jane Smith";
-                doctorSelect.add(doctor2);
-                
-                var doctor3 = document.createElement("option");
-                doctor3.text = "Dr. Sarah Johnson";
-                doctorSelect.add(doctor3);
-             
-       
-      
           
-              } else if (department === "Neurology") {
-                
-                
-                var doctor3 = document.createElement("option");
-                doctor3.text = "Dr. David Lee";
-                doctorSelect.add(doctor3);
-                
-                var doctor4 = document.createElement("option");
-                doctor4.text = "Dr. Maria Rodriguez";
-                doctorSelect.add(doctor4);
-      
-             
-              } else if (department === "Orthopedics") {
-                
-      
-                var doctor7 = document.createElement("option");
-                doctor7.text = "Dr. Emily Chen";
-                doctorSelect.add(doctor7);
-                
-                var doctor6 = document.createElement("option");
-                doctor6.text = "Dr. Lisa Patel";
-                doctorSelect.add(doctor6);
-      
-                
-              }
-              // set the available dates and times based on the selected doctor
-        doctorSelect.addEventListener("change", function() {
-          // get the selected doctor
-          var doctor = doctorSelect.value;
-          
-          // update the date and time inputs based on the selected doctor
-        if (doctor === "Dr. Jane Smith") {
-          dateInput.value = "2023-05-01";
-          dateInput.min = "2023-05-01";
-          dateInput.max = "2023-05-07";
-          
-          
-        
-      
-        } else if (doctor === "Dr. Sarah Johnson") {
-          dateInput.value = "2023-05-02";
-          dateInput.min = "2023-05-02";
-          dateInput.max = "2023-05-08";
-          
-      
-          
-          
-        } else if (doctor === "Dr. David Lee") {
-          dateInput.value = "2023-05-03";
-          dateInput.min = "2023-05-03";
-          dateInput.max = "2023-05-09";
-          
-          
-         
-          
-        } else if (doctor === "Dr. Maria Rodriguez") {
-          dateInput.value = "2023-05-04";
-          dateInput.min = "2023-05-04";
-          dateInput.max = "2023-05-10";
-          
-         
-        } 
-        else if (doctor === "Dr. Maria Rodriguez") {
-        dateInput.value = "2023-05-04";
-        dateInput.min = "2023-05-04";
-        dateInput.max = "2023-05-10";
-      
-        
-      }
-      else if (doctor === "Dr. Lisa Patel") {
-        dateInput.value = "2023-05-06";
-        dateInput.min = "2023-05-06";
-        dateInput.max = "2023-05-12";
-      
-      }});
-             
-         
-            }
-          </script>
 
           <div class="card mb-4 mb-lg-0">
             <div class="card-body p-0">
