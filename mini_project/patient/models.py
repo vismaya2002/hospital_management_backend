@@ -33,7 +33,3 @@ class Otp(models.Model):
     otp = models.IntegerField(default=0)
 
 
-class HealthRecord(models.Model):
-    health_condition = models.CharField(max_length=100)
-    assigned_priority = models.IntegerField()
-    index_number = models.CharField(max_length=10)   

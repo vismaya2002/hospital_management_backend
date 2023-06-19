@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect,HttpResponse
 from .models import PatientDetails,Booking,Otp
 from doctor.models import Doctor
 import random
-import datetime
 from .otp import sms
 def home(request):
     return render(request,'index.html')
