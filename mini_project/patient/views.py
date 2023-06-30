@@ -77,6 +77,7 @@ def otp(request):
                 pass
             book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
             book.save()
+            sms('+91'+str(contactnumber),f'Your Appointment Booking is successful.Doctornam : {doctor} and token number is {length+1}')
             context = {
                 'patientid': idz,
                 'firstname': firstname,
@@ -188,6 +189,8 @@ def patientbooking(request):
             pass
         book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
         book.save()
+        details = PatientDetails.objects.filter(patientid=patientid).values()
+        sms('+91'+str(details[0]['contact1']),f'Your Appointment Booking is successful. Doctorname : {doctor} and token number is {length+1}')
         bookingdetails = Booking.objects.filter(patientid=patientid).values()
         context = {
             'bookingdetails' : bookingdetails
