@@ -115,6 +115,16 @@
           </select>
         </div>
        </div>
+       <div class="form-group col-md-12">
+        <label for="symptoms">Symptoms</label>
+        <select id="symptoms" name="symptoms" class="form-control" required>
+          <option value="" selected>Select Symptoms</option>
+          <option value="Symptom 1">Symptom 1</option>
+          <option value="Symptom 2">Symptom 2</option>
+          <option value="Symptom 3">Symptom 3</option>
+          <!-- Add more symptom options here as needed -->
+        </select>
+      </div>
        <div class="form-row">
          <div class="form-group col-md-6">
            <label for="date">Date</label>
@@ -141,6 +151,7 @@
       function showDoctors() {
         var department = document.getElementById("department").value;
         var doctorSelect = document.getElementById("doctor");
+        
         var dateInput = document.getElementById("date");
         var timeSelect = document.getElementById("time");
         doctorSelect.innerHTML = "";
