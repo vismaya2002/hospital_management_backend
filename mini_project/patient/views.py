@@ -22,6 +22,7 @@ def newpatient(request):
         doctor = request.POST.get('doctor')
         date = request.POST.get('date')
         time = request.POST.get('time')
+        symptoms = request.POST.get('symptoms')
         idz = "#OR"+str(random.randint(10000,100000))
         otp = random.randint(10000,1000000)
         
@@ -41,7 +42,8 @@ def newpatient(request):
             'doctor' : doctor,
             'date' : date,
             'time' : time,
-            'idz' : idz       
+            'idz' : idz,
+            'symptoms' : symptoms     
             }
         return render(request,'otp.html',context)
     return render(request,'newpatient.html')
