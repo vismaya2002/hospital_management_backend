@@ -148,9 +148,11 @@
   function showDoctors() {
     var department = document.getElementById("department").value;
     var doctorSelect = document.getElementById("doctor");
+    var symptomsSelect = document.getElementById("symptoms");
     var dateInput = document.getElementById("date");
     var timeSelect = document.getElementById("time");
     doctorSelect.innerHTML = "";
+    symptomsSelect.innerHTML = "";
     timeSelect.innerHTML = "";
 
     // Add the default "Select Doctor" option
@@ -158,6 +160,8 @@
     defaultDoctor.value = "";
     defaultDoctor.text = "Select Doctor";
     doctorSelect.add(defaultDoctor);
+    
+
     
     // Add the default "Select Time" option
     var defaultTime = document.createElement("option");
@@ -195,26 +199,81 @@
     doctorSelect.addEventListener("change", function () {
       // Get the selected doctor
       var doctor = doctorSelect.value;
+      
+      // Clear existing symptom options
+  symptomsSelect.innerHTML = "";
+
+  //Add the default "Select Symptoms" option
+  var defaultSymptoms = document.createElement("option");
+     defaultSymptoms.value = "";
+    defaultSymptoms.text = "Select Symptoms";
+    symptomsSelect.add(defaultSymptoms);
+
+  // Add the default "Select Symptoms" option
+  symptomsSelect.add(defaultSymptoms);
+
+  // Sort and populate the symptom options for the selected doctor
+  var symptomsOptions = [];
+  if (doctor === "Dr. Jane Smith") {
+    symptomsOptions = [
+      "Symptom 2",
+      "Symptom 1",
+      "Symptom 3",
+      // Define symptom options for Dr. Jane Smith
+    ];
+  } else if (doctor === "Dr. Sarah Johnson") {
+    symptomsOptions = [
+      "Symptom 4",
+      "Symptom 5",
+      "Symptom 6",
+      // Define symptom options for Dr. Sarah Johnson
+    ];
+  } else if (doctor === "Dr. David Lee") {
+    symptomsOptions = [
+      "Symptom 7",
+      "Symptom 8",
+      "Symptom 9",
+      // Define symptom options for Dr. David Lee
+    ];
+  } else if (doctor === "Dr. Maria Rodriguez") {
+    symptomsOptions = [
+      "Symptom 10",
+      "Symptom 11",
+      "Symptom 12",
+      // Define symptom options for Dr. Maria Rodriguez
+    ];
+  } else if (doctor === "Dr. Lisa Patel") {
+    symptomsOptions = [
+      "Symptom 13",
+      "Symptom 14",
+      "Symptom 15",
+      // Define symptom options for Dr. Lisa Patel
+    ];
+  }
+
+  // Populate the sorted symptom options
+  symptomsOptions.forEach(function (symptom) {
+    var symptomOption = document.createElement("option");
+    symptomOption.value = symptom;
+    symptomOption.text = symptom;
+    symptomsSelect.add(symptomOption);
+  });
 
       // Update the date and time inputs based on the selected doctor
       if (doctor === "Dr. Jane Smith") {
-        dateInput.value = "2023-06-19";
-        dateInput.min = "2023-06-19";
-<<<<<<< HEAD
-        dateInput.max = "2023-06-27";
-=======
-        dateInput.max = "2023-06-26";
->>>>>>> 4b06f6e7237c3b9e53dbd8b4cc6343bdd13a962e
+        dateInput.value = "2023-08-19";
+        dateInput.min = "2023-08-19";
+        dateInput.max = "2023-08-26";
 
         var timeOptions = [
-          { value: "09:00", text: "3:00 PM" },
-          { value: "10:00", text: "4:00 PM" },
-          { value: "1:00", text: "6:00 PM" },
+          { value: "09:00", text: "09:00 AM" },
+          { value: "10:00", text: "10:00 AM" },
+          { value: "1:00", text: "1:00 PM" },
         ];
       } else if (doctor === "Dr. Sarah Johnson") {
-        dateInput.value = "2023-06-20";
-        dateInput.min = "2023-06-20";
-        dateInput.max = "2023-06-26";
+        dateInput.value = "2023-08-20";
+        dateInput.min = "2023-08-20";
+        dateInput.max = "2023-08-26";
 
         var timeOptions = [
           { value: "13:00", text: "01:00 PM" },
@@ -222,15 +281,9 @@
           { value: "15:00", text: "03:00 PM" },
         ];
       } else if (doctor === "Dr. David Lee") {
-<<<<<<< HEAD
-        dateInput.value = "2023-06-20";
-        dateInput.min = "2023-06-20";
-        dateInput.max = "2023-06-28";
-=======
-        dateInput.value = "2023-06-19";
-        dateInput.min = "2023-06-19";
-        dateInput.max = "2023-06-26";
->>>>>>> 4b06f6e7237c3b9e53dbd8b4cc6343bdd13a962e
+        dateInput.value = "2023-08-19";
+        dateInput.min = "2023-08-19";
+        dateInput.max = "2023-08-25";
 
         var timeOptions = [
           { value: "13:00", text: "01:00 PM" },
@@ -239,15 +292,9 @@
           // Define time options for Dr. David Lee
         ];
       } else if (doctor === "Dr. Maria Rodriguez") {
-<<<<<<< HEAD
-        dateInput.value = "2023-06-20";
-        dateInput.min = "2023-06-20";
-        dateInput.max = "2023-06-29";
-=======
-        dateInput.value = "2023-06-21";
-        dateInput.min = "2023-06-21";
-        dateInput.max = "2023-06-26";
->>>>>>> 4b06f6e7237c3b9e53dbd8b4cc6343bdd13a962e
+        dateInput.value = "2023-08-21";
+        dateInput.min = "2023-08-21";
+        dateInput.max = "2023-08-26";
 
         var timeOptions = [
           { value: "13:00", text: "01:00 PM" },
@@ -256,14 +303,9 @@
           // Define time options for Dr. Maria Rodriguez
         ];
       } else if (doctor === "Dr. Lisa Patel") {
-<<<<<<< HEAD
-        dateInput.value = "2023-06-20";
-        dateInput.min = "2023-06-20";
-=======
-        dateInput.value = "2023-06-22";
-        dateInput.min = "2023-06-22";
->>>>>>> 4b06f6e7237c3b9e53dbd8b4cc6343bdd13a962e
-        dateInput.max = "2023-06-27";
+        dateInput.value = "2023-08-22";
+        dateInput.min = "2023-08-22";
+        dateInput.max = "2023-08-27";
 
         var timeOptions = [
           { value: "11:00", text: "11:00 AM" },
@@ -288,8 +330,9 @@
       });
     });
   }
-
+ 
 </script>
+
 
               
             </div>
