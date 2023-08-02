@@ -109,8 +109,11 @@ def token_assignment(request,pk):
         print(i)
         onetime = Booking.objects.get(patientid=i,date=datetime.today())
         onetime.token=count
+        dataz = PatientDetails.objects.filter(patientid=i).values()
+        sms('+91'+str(dataz[0]['contact1']),f'Your Token for consulting {onetime.doctorname} is {count} on {onetime.date}')
         onetime.save()
         count+=1
+        
 
     
     return Response(status=status.HTTP_200_OK)
