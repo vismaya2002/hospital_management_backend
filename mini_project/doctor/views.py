@@ -106,7 +106,7 @@ def token_assignment(request,pk):
 
     count =1
     for i in first_key:
-        print(i)
+        
         onetime = Booking.objects.get(patientid=i,date=datetime.today())
         onetime.token=count
         dataz = PatientDetails.objects.filter(patientid=i).values()
