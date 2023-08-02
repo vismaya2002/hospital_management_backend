@@ -144,79 +144,30 @@
    
       </form>
     </div>
-    
     <script>
-      // Define a mapping of symptoms for each doctor
-      var symptomsData = {
-        "Dr. Jane Smith": ["Symptom 2", "Symptom 1", "Symptom 3"],
-        "Dr. Sarah Johnson": ["Symptom 1", "Symptom 3", "Symptom 2"],
-        "Dr. David Lee": ["Symptom 3", "Symptom 2", "Symptom 1"],
-        "Dr. Maria Rodriguez": ["Symptom 2", "Symptom 1", "Symptom 3"],
-        "Dr. Emily Chen": ["Symptom 1", "Symptom 3", "Symptom 2"],
-        "Dr. Lisa Patel": ["Symptom 1", "Symptom 3", "Symptom 2"],
-      };
-    
-      // Define a mapping of time options for each doctor
-      var timeData = {
-        "Dr. Jane Smith": [
-          { value: "09:00", text: "09:00 AM" },
-          { value: "10:00", text: "10:00 AM" },
-          { value: "13:00", text: "01:00 PM" },
-        ],
-        "Dr. Sarah Johnson": [
-          { value: "13:00", text: "01:00 PM" },
-          { value: "14:00", text: "02:00 PM" },
-          { value: "15:00", text: "03:00 PM" },
-        ],
-        "Dr. David Lee": [
-          { value: "13:00", text: "01:00 PM" },
-          { value: "14:00", text: "02:00 PM" },
-          { value: "15:00", text: "03:00 PM" },
-        ],
-        "Dr. Maria Rodriguez": [
-          { value: "13:00", text: "01:00 PM" },
-          { value: "14:00", text: "02:00 PM" },
-          { value: "15:00", text: "03:00 PM" },
-        ],
-        "Dr. Emily Chen": [
-          { value: "11:00", text: "11:00 AM" },
-          { value: "14:00", text: "02:00 PM" },
-          { value: "16:00", text: "03:00 PM" },
-        ],
-        "Dr. Lisa Patel": [
-          { value: "11:00", text: "11:00 AM" },
-          { value: "14:00", text: "02:00 PM" },
-          { value: "16:00", text: "03:00 PM" },
-        ],
-      };
-    
       function showDoctors() {
         var department = document.getElementById("department").value;
         var doctorSelect = document.getElementById("doctor");
+        var symptomsSelect = document.getElementById("symptoms");
         var dateInput = document.getElementById("date");
         var timeSelect = document.getElementById("time");
-        var symptomsSelect = document.getElementById("symptoms");
         doctorSelect.innerHTML = "";
-        timeSelect.innerHTML = "";
         symptomsSelect.innerHTML = "";
+        timeSelect.innerHTML = "";
     
         // Add the default "Select Doctor" option
         var defaultDoctor = document.createElement("option");
         defaultDoctor.value = "";
         defaultDoctor.text = "Select Doctor";
         doctorSelect.add(defaultDoctor);
-    
+        
+
+        
         // Add the default "Select Time" option
         var defaultTime = document.createElement("option");
         defaultTime.value = "";
         defaultTime.text = "Select Time";
         timeSelect.add(defaultTime);
-    
-        // Add the default "Select Symptoms" option
-        var defaultSymptoms = document.createElement("option");
-        defaultSymptoms.value = "";
-        defaultSymptoms.text = "Select Symptoms";
-        symptomsSelect.add(defaultSymptoms);
     
         if (department === "Cardiology") {
           var doctor2 = document.createElement("option");
@@ -244,76 +195,134 @@
           doctorSelect.add(doctor6);
         }
     
-        // Function to sort an array in ascending order
-        function sortAsc(arr) {
-          return arr.sort(function (a, b) {
-            return a.localeCompare(b);
-          });
-        }
-    
-        // Function to populate the symptoms select field based on the selected doctor
-        function populateSymptoms(doctorName) {
-          symptomsSelect.innerHTML = "";
-    
-          // Add the default "Select Symptoms" option
-          symptomsSelect.add(defaultSymptoms);
-    
-          // Get the symptoms for the selected doctor and sort them in ascending order
-          var symptoms = sortAsc(symptomsData[doctorName]);
-    
-          // Populate the symptoms select field
-          symptoms.forEach(function (symptom) {
-            var symptomOption = document.createElement("option");
-            symptomOption.value = symptom;
-            symptomOption.text = symptom;
-            symptomsSelect.add(symptomOption);
-          });
-        }
-    
-        // Set the available dates based on the selected doctor
+        // Set the available dates and times based on the selected doctor
         doctorSelect.addEventListener("change", function () {
           // Get the selected doctor
           var doctor = doctorSelect.value;
-    
-          // Update the date input based on the selected doctor
+          
+          // Clear existing symptom options
+      symptomsSelect.innerHTML = "";
+
+      //Add the default "Select Symptoms" option
+      var defaultSymptoms = document.createElement("option");
+         defaultSymptoms.value = "";
+        defaultSymptoms.text = "Select Symptoms";
+        symptomsSelect.add(defaultSymptoms);
+
+      // Add the default "Select Symptoms" option
+      symptomsSelect.add(defaultSymptoms);
+
+      // Sort and populate the symptom options for the selected doctor
+      var symptomsOptions = [];
+      if (doctor === "Dr. Jane Smith") {
+        symptomsOptions = [
+          "Symptom 2",
+          "Symptom 1",
+          "Symptom 3",
+          // Define symptom options for Dr. Jane Smith
+        ];
+      } else if (doctor === "Dr. Sarah Johnson") {
+        symptomsOptions = [
+          "Symptom 4",
+          "Symptom 5",
+          "Symptom 6",
+          // Define symptom options for Dr. Sarah Johnson
+        ];
+      } else if (doctor === "Dr. David Lee") {
+        symptomsOptions = [
+          "Symptom 7",
+          "Symptom 8",
+          "Symptom 9",
+          // Define symptom options for Dr. David Lee
+        ];
+      } else if (doctor === "Dr. Maria Rodriguez") {
+        symptomsOptions = [
+          "Symptom 10",
+          "Symptom 11",
+          "Symptom 12",
+          // Define symptom options for Dr. Maria Rodriguez
+        ];
+      } else if (doctor === "Dr. Lisa Patel") {
+        symptomsOptions = [
+          "Symptom 13",
+          "Symptom 14",
+          "Symptom 15",
+          // Define symptom options for Dr. Lisa Patel
+        ];
+      }
+
+      // Populate the sorted symptom options
+      symptomsOptions.forEach(function (symptom) {
+        var symptomOption = document.createElement("option");
+        symptomOption.value = symptom;
+        symptomOption.text = symptom;
+        symptomsSelect.add(symptomOption);
+      });
+
+          // Update the date and time inputs based on the selected doctor
           if (doctor === "Dr. Jane Smith") {
-            dateInput.value = "2023-06-20";
-            dateInput.min = "2023-06-20";
-            dateInput.max = "2023-06-28";
-          } else if (doctor === "Dr. Sarah Johnson") {
-            dateInput.value = "2023-06-20";
-            dateInput.min = "2023-06-20";
-            dateInput.max = "2023-06-26";
-          } else if (doctor === "Dr. David Lee") {
-            dateInput.value = "2023-06-20";
-            dateInput.min = "2023-06-19";
-            dateInput.max = "2023-06-27";
-          } else if (doctor === "Dr. Maria Rodriguez") {
-            dateInput.value = "2023-06-21";
-            dateInput.min = "2023-06-20";
-            dateInput.max = "2023-06-29";
-          } else if (doctor === "Dr. Emily Chen") {
-            dateInput.value = "2023-06-22";
-            dateInput.min = "2023-06-20";
-            dateInput.max = "2023-06-27";
-          } else if (doctor === "Dr. Lisa Patel") {
-            dateInput.value = "2023-06-22";
-            dateInput.min = "2023-06-20";
-            dateInput.max = "2023-06-27";
-          }
+            dateInput.value = "2023-08-19";
+            dateInput.min = "2023-08-19";
+            dateInput.max = "2023-08-26";
     
-          // Populate the symptoms select field based on the selected doctor
-          populateSymptoms(doctor);
+            var timeOptions = [
+              { value: "09:00", text: "09:00 AM" },
+              { value: "10:00", text: "10:00 AM" },
+              { value: "1:00", text: "1:00 PM" },
+            ];
+          } else if (doctor === "Dr. Sarah Johnson") {
+            dateInput.value = "2023-08-20";
+            dateInput.min = "2023-08-20";
+            dateInput.max = "2023-08-26";
+    
+            var timeOptions = [
+              { value: "13:00", text: "01:00 PM" },
+              { value: "14:00", text: "02:00 PM" },
+              { value: "15:00", text: "03:00 PM" },
+            ];
+          } else if (doctor === "Dr. David Lee") {
+            dateInput.value = "2023-08-19";
+            dateInput.min = "2023-08-19";
+            dateInput.max = "2023-08-25";
+    
+            var timeOptions = [
+              { value: "13:00", text: "01:00 PM" },
+              { value: "14:00", text: "02:00 PM" },
+              { value: "15:00", text: "03:00 PM" },
+              // Define time options for Dr. David Lee
+            ];
+          } else if (doctor === "Dr. Maria Rodriguez") {
+            dateInput.value = "2023-08-21";
+            dateInput.min = "2023-08-21";
+            dateInput.max = "2023-08-26";
+    
+            var timeOptions = [
+              { value: "13:00", text: "01:00 PM" },
+              { value: "14:00", text: "02:00 PM" },
+              { value: "15:00", text: "03:00 PM" },
+              // Define time options for Dr. Maria Rodriguez
+            ];
+          } else if (doctor === "Dr. Lisa Patel") {
+            dateInput.value = "2023-08-22";
+            dateInput.min = "2023-08-22";
+            dateInput.max = "2023-08-27";
+    
+            var timeOptions = [
+              { value: "11:00", text: "11:00 AM" },
+              { value: "14:00", text: "02:00 PM" },
+              { value: "16:00", text: "03:00 PM" },
+              // Define time options for Dr. Lisa Patel
+            ];
+          }
     
           // Clear existing time options
           timeSelect.innerHTML = "";
-    
+          
           // Add the default "Select Time" option
           timeSelect.add(defaultTime);
     
-          // Get the time options for the selected doctor and populate the time select field
-          var times = timeData[doctor];
-          times.forEach(function (option) {
+          // Sort and populate the time options
+          timeOptions.forEach(function (option) {
             var optionElement = document.createElement("option");
             optionElement.value = option.value;
             optionElement.text = option.text;
@@ -321,6 +330,7 @@
           });
         });
       }
+     
     </script>
     
     
