@@ -84,3 +84,33 @@ def docinout(request,pk,pt):
         else:
             sms('+91'+str(dataz[0]['contact1']),f'{docname} is currently OUT')
     return Response(status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def token_assignment(request,pk):
+    dataz = Booking.objects.filter(doctorid='#'+pk,date=date.today()).values()
+    dict={}
+    for i in range(len(dataz)):
+        dict[dataz[i]['patientid']] = dataz[i]['token']
+
+    dict = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
+    first_key = []
+    first_val = []
+    print(dict)
+    for i in range(len(dict)):
+        first_keyz = list(dict)[i]
+        first_valz = list(dict.values())[i]
+        first_key.append(first_keyz)
+        first_val.append(first_valz)
+    
+
+    count =1
+    for i in first_key:
+        print(i)
+        onetime = Booking.objects.get(patientid=i,date=datetime.today())
+        onetime.token=count
+        onetime.save()
+        count+=1
+
+    
+    return Response(status=status.HTTP_200_OK)

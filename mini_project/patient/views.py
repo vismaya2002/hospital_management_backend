@@ -3,6 +3,8 @@ from .models import PatientDetails,Booking,Otp
 from doctor.models import Doctor
 import random
 from .otp import sms
+from .ml import priority_ml
+
 def home(request):
     return render(request,'index.html')
 
@@ -12,8 +14,8 @@ def newpatient(request):
         lastname = request.POST.get('lastName')
         email = request.POST.get('email')
         address = request.POST.get('address')
-        age = request.POST.get('age')
-        gender = request.POST.get('gender')
+        age = request.POST.get('age')       
+        gender = request.POST.get('gender')                   
         contactnumber = request.POST.get('contactNumber')
         emernumber = request.POST.get('contactNumber1')
         department = request.POST.get('department')
@@ -60,6 +62,8 @@ def otp(request):
         time = request.POST.get('time')
         idz = request.POST.get('idz')
         otp = request.POST.get('otp')
+        symptom = request.POST.get('symptoms')
+        print(symptom)
         try:
             onetime = Otp.objects.filter(patientid=idz).values()
         except:
@@ -75,9 +79,10 @@ def otp(request):
                 length = len(Booking.objects.filter(doctorid=doc_id,date=date).values())
             except:
                 pass
-            book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
+            a,b = priority_ml(symptom)
+            book = Booking(patientid=idz,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=a)
             book.save()
-            sms('+91'+str(contactnumber),f'Your Appointment Booking is successful.Doctornam : {doctor} and token number is {length+1}')
+            sms('+91'+str(contactnumber),f'Your Appointment Booking is successful.Doctornam : {doctor} and token number will be recieved on the day before appointment.')
             context = {
                 'patientid': idz,
                 'firstname': firstname,
@@ -180,6 +185,7 @@ def patientbooking(request):
         doctor = request.POST.get('doctor')
         date = request.POST.get('date')
         time = request.POST.get('time')
+        symptom = request.POST.get('symptoms')
         doc = Doctor.objects.filter(department=department,doctorname=doctor).values()
         doc_id = doc[0]['doctorid']
         length = 0
@@ -187,10 +193,11 @@ def patientbooking(request):
             length = len(Booking.objects.filter(doctorid=doc_id,date=date).values())
         except:
             pass
-        book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=length+1)
+        a,b = priority_ml(symptom)
+        book = Booking(patientid=patientid,doctorid=doc_id,doctorname=doctor,department=department,date = date,time=time,token=a)
         book.save()
         details = PatientDetails.objects.filter(patientid=patientid).values()
-        sms('+91'+str(details[0]['contact1']),f'Your Appointment Booking is successful. Doctorname : {doctor} and token number is {length+1}')
+        sms('+91'+str(details[0]['contact1']),f'Your Appointment Booking is successful. Doctorname : {doctor} and token number will be recieved on the day before appointment. ')
         bookingdetails = Booking.objects.filter(patientid=patientid).values()
         context = {
             'bookingdetails' : bookingdetails
