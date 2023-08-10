@@ -250,7 +250,7 @@ def priority_ml(symptom):
     1,  # Abnormal Bleeding
     1,  # Bruising Under the Skin
     4,  # Increased Urination at Night]
-    }
+    ]}
 
     dataz = {  'Fever': 8,
     'Cough': 8,
